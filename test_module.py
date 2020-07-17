@@ -20,7 +20,8 @@ def ball_test(graph_handle,params):
 																	mode='percent',
 																	random_subset_size=params['random_subset_size'],
 																	balltype=params['balltype'],
-																	node_acc=SynthNodeInfo())
+																	node_acc=SynthNodeInfo(),
+																	number_of_nodes=params['number_of_nodes'])
 
 		# Record in which iteration a node was visited 
 		for node in total_node_list:
