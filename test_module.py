@@ -2,7 +2,7 @@ import numpy as np
 import pysad.exploration
 from pysad.NodeInfo import SynthNodeInfo
 from collections import Counter
-
+import networkx as nx
 
 def ball_test(graph_handle,params):
 	node_dic = {}
@@ -28,10 +28,11 @@ def ball_test(graph_handle,params):
 				node_dic[node].append(it) 
 			else:
 				node_dic[node] = [it]
+	subgraph = nx.from_pandas_edgelist(total_edges_df)
 
 	# delete the initial node (always in the list)
 	#del node_dic[params['initial_node']] 
-	return node_dic
+	return node_dic,subgraph
 
 def expand_degrees(node_dic,degree_dic):
 	degree_list = []
